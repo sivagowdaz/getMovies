@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p class='collection_title'>Results for search {{search}}</p>  
+<div class="movie_container">
+    {% for movie in final_list %}
+        <a class='movie_link' href="{{movie.0}}">
+            <div class="movie_card">
+                <img class='movie_card_image' src="{{movie.1}}">
+                <p class='movie_title'>
+                    {{movie.2|add:"..."}}
+                </p>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+
+<p class='collection_title'>Recent Movies</p>
+<div class="movie_container">
+    {% for recent_movie in recent_movie_list %}
+        <a class='movie_link' href={{recent_movie.0}}>
+            <div class="movie_card">
+                <img class='movie_card_image' src={{recent_movie.1}} alt='recent movie image'>
+                <p class='movie_title'>
+                    {{recent_movie.2}}
+                </p>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+
+{% endblock content %}

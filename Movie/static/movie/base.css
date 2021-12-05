@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,900;1,100;1,900&display=swap');
+
+
+*, html {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: black;
+    color: white;
+    padding: 13px;
+    font-family: 'Roboto', sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.page_title {
+    font-size: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
+    color: black;
+    background-color: #f5c518;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+}
+.page_description {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+}
+.page_intent {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 10px;
+    color: #f5c518;
+    font-weight: 500;
+}
+.underline {
+    width: 100%;
+    height: 0.5px;
+    background-color: white;
+}
+.search_movie {
+    display: flex;
+    margin-top: 15px;
+}
+.movie_input {
+    flex: 8;
+    padding: 1px;
+    border: none;
+    height: 30px;
+}
+.submit_button {
+    flex: 2;
+    border: none;
+    background-color: #f5c518;
+    height: 30px;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+}
+.language {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.language_button, .genre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    margin-right: 5px;
+    margin-bottom: 6px;
+    text-transform: capitalize;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-align: center;
+    height: 20px;
+    border: none;
+    color: black;
+    background: #f5c518;
+}
+
+.additional_buttons {
+    margin-top: 13px;
+    display: flex;
+    gap: 2px;
+    margin-bottom: 5px;
+}
+.other_movies, .genre_select {
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px 0;
+    background-color: #d1a30a;
+}
+.other_movie {
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.genreform {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+.bottom_list {
+    margin-top: 30px;
+    display: block;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 400;
+    list-style: none;
+}
+.bottom_list_item {
+    padding: 10px;
+    text-align: center;
+}
+.bottom_list_item:hover {
+    background-color: #121212;
+}
+
+@media screen and (min-width: 750px) {
+    .page_title {
+        font-size: 30px;
+        margin-bottom: 16px;
+    }
+    .page_description {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+    .page_intent {
+        font-size: 23px;
+    }
+    .movie_input {
+        height: 40px;
+        font-size: 18px;
+    }
+    .submit_button {
+        font-size: 20px;
+        height: 40px;
+    }
+    .language_button, .genre{
+        font-size: 16px;
+        padding: 15px 10px
+    }
+
+}

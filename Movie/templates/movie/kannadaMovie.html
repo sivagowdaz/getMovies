@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<head><script src="../../static/js/popup.js"></script></head>
+<p class='collection_title'>Result for {{intrested_search}} search</p> 
+<div class="movie_container">
+    {% for movie in final_list %}
+        <a class='movie_link' href="{{movie.0}}">
+            <div class="movie_card">
+                <img class='movie_card_image' src="{{movie.1}}">
+                <p class='movie_title'>
+                    {{movie.2|add:'...'}}
+                </p>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+<div class="move_pages">
+    <form action="{% url 'movies' %}" class="page_form"  method='post'>
+        {% csrf_token %}
+        <button name='new_page' value='{{"next_page "|add:page_number|add:" "|add:url}}' class="page_links">Older Entries</a>
+        <button name='new_page' value='{{"prev_page "|add:page_number|add:" "|add:url}}' class="page_links">Previous Entries</button>
+    </form>
+</div> 
+
+<p class='collection_title recent'>Recent Movie List</p>
+
+    <div class="recent_movie_list">
+        {% for movie in recent_movie_list %}
+        <a class='movie_link' href="{{movie.0}}">
+            <div class="movie_card">
+                <img class='movie_card_image' src="{{movie.1}}">
+                <p class='movie_title'>
+                    {{movie.2|add:'...'}}
+                </p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+   
+    <i class="fas fa-chevron-left scroll_buttons left-button"
+        style="font-size: 38px; color: white; padding: 7px; background-color: #252424;" onclick="scroll_left()"></i>
+    
+    <i class="fas fa-chevron-right scroll_buttons right-button"
+        style="font-size: 38px; color: white; padding: 7px; background-color: #252424;" onclick="scroll_right()"></i>
+    
+{% endblock content %}

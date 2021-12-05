@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9704d9e5b8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static "movie/base.css" %}">
+    <link rel="stylesheet" href="{% static "movie/movie.css" %}">
+    <script src="../static/js/popup.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h4 class='page_title'>Welcome To GETMOVIE.COM</h4>
+    <p class='page_description'>Watch and Download Kannada Tamil Malayalam Telugu Hindi movies</p>
+    <p class='page_intent'>Enjoy the Unlimitted Fun</p>
+    <div class='underline'></div>
+
+    <form action="{% url 'home' %}" class="search_movie" method="post">
+        {% csrf_token %}
+        <input type="text" name="search" class="movie_input" placeholder="movie">
+        <button class="submit_button">Search</button>
+    </form>
+    <!-- <a href="{% url 'home' %}" class="go_home">Home</a> -->
+    <form action="{% url 'movies' %}" method='post' class="language">
+        {% csrf_token %}
+        <button class="language_button" name='language' value='featured'>featured</button>
+        <button class="language_button" name='language' value='kannada'>kannada</button>
+        <button class="language_button" name='language' value='tamil'>tamil</button>
+        <button class="language_button" name='language' value='malayalam'>malayalam</button>
+        <button class="language_button" name='language' value='telugu'>telugu</button>
+        <button class="language_button" name='language' value='hollywood'>hollywood</button>
+        <button class="language_button" name='language' value='bollywood'>bollywood</button>
+        <button class="language_button" name='language' value='dvdrip'>dvdrip</button>
+    </form>
+
+    <div class="additional_buttons">
+        <button class="other_movies" onclick="toggle('toggle_other_movie')">Other</button>
+        <button class="genre_select" onclick="toggle('toggle_genre')">Genre</button>
+    </div>
+
+    <form class="other_movie" style="display: none;">
+        {% csrf_token %}
+        <button class="language_button" name='languagen' value='pujabi'>punjabi</button>
+        <button class="language_button" name='languagen' value='bengali'>bengali</button>
+        <button class="language_button" name='languagen' value='marati'>marati</button>
+        <button class="language_button" name='languagen' value='urdu'>urdu</button>
+    </form>
+    <form action="{% url 'movies' %}" method='post' style="display:none;" class="genreform">
+        {% csrf_token %}
+        <button class='genre' name='genre' value='action'>Action</button>
+        <button class='genre' name='genre' value='adventure'>Adventure</button>
+        <button class='genre' name='genre' value='animation'>Animation</button>
+        <button class='genre' name='genre' value='comedy'>Comedy</button>
+        <button class='genre' name='genre' value='crime'>Crime</button>
+        <button class='genre' name='genre' value='drama'>Drama</button>
+        <button class='genre' name='genre' value='romance'>Romance</button>
+        <button class='genre' name='genre' value='fantacy'>Fantacy</button>
+        <button class='genre' name='genre' value='horror'>Horror</button>
+        <button class='genre' name='genre' value='thriller'>Thriller</button>
+        <button class='genre' name='genre' value='biography'>Biography</button>
+        <button class='genre' name='genre' value='documentory'>Documentory</button>
+        <button class='genre' name='genre' value='family'>Family</button>
+        <button class='genre' name='genre' value='history'>History</button>
+        <button class='genre' name='genre' value='music'>Music</button><button class='genre' name='genre' value='war'>War</button>
+        <button class='genre' name='genre' value='war'>War</button>
+        <button class='genre' name='genre' value='western'>Western</button>
+        <button class='genre' name='genre' value='sport'>Sport</button>
+        <button class='genre' name='genre' value='adult'>Adult</button>
+    </form>
+
+    
+    {% block content %}
+    
+    {% endblock content %}
+    <div class="arrow-box" onclick="scroll_top()">
+        <i class="fas fa-angle-double-up up-arrow"></i>
+    </div>
+    <ul class="bottom_list">
+        <li class="bottom_list_item">help</li>
+        <li class="bottom_list_item">contact</li>
+        <li class="bottom_list_item">about</li>
+    </ul>
+</body> 
+
+</html>
