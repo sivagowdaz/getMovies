@@ -23,24 +23,24 @@
 </div> 
 
 <p class='collection_title recent'>Recent Movie List</p>
-
-    <div class="recent_movie_list">
-        {% for movie in recent_movie_list %}
-        <a class='movie_link' href="{{movie.0}}">
-            <div class="movie_card">
-                <img class='movie_card_image' src="{{movie.1}}">
-                <p class='movie_title'>
-                    {{movie.2|add:'...'}}
-                </p>
-            </div>
-        </a>
-        {% endfor %}
+    <div class="recent_movie_container">
+        <div class="recent_movie_list">
+            {% for movie in recent_movie_list %}
+            <a class='movie_link' href="{{movie.0}}">
+                <div class="movie_card">
+                    <img class='movie_card_image' src="{{movie.1}}">
+                    <p class='movie_title'>
+                        {{movie.2|add:'...'}}
+                    </p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        
+        <i class="fas fa-chevron-left scroll_buttons left-button" onclick="scroll_left()"></i>
+        
+        <i class="fas fa-chevron-right scroll_buttons right-button" onclick="scroll_right()"></i>
     </div>
-   
-    <i class="fas fa-chevron-left scroll_buttons left-button"
-        style="font-size: 38px; color: white; padding: 7px; background-color: #252424;" onclick="scroll_left()"></i>
     
-    <i class="fas fa-chevron-right scroll_buttons right-button"
-        style="font-size: 38px; color: white; padding: 7px; background-color: #252424;" onclick="scroll_right()"></i>
     
 {% endblock content %}

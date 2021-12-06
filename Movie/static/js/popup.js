@@ -23,9 +23,9 @@ function scroll_top() {
 }
 
 function scroll_left() {
-    document.querySelector('.recent_movie_list').scrollLeft += 900
+    document.querySelector('.recent_movie_list').scrollLeft += 400
 }
 
 function scroll_right() {
-    document.querySelector('.recent_movie_list').scrollLeft -= 900
+    document.querySelector('.recent_movie_list').scrollLeft -= 400
 }
