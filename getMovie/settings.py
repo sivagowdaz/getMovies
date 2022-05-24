@@ -25,7 +25,8 @@ SECRET_KEY = "django-insecure-wd&v%xwsf8u@7tw94(0_(%@sr&+clea2#cz9p=m6(h-znlv=_8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["clickandgetmovie.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = []
+# "clickandgetmovie.herokuapp.com", "127.0.0.1"
 
 # Application definition
 
