@@ -161,7 +161,17 @@ def getKannadaMovie(request):
     return render(request, 'movie/kannadaMovie.html', stuff_for_frontend)
 
 
-def getTamilMovie(request):
-    return render(request, 'movie/tamilMovie.html')
-
-
+def downloadMovie(request):
+    requested_data = requests.get(
+        'https://7movierulz.sx/konda-polam-2021-hdrip-telugu-full-movie-watch-online-free/')
+    data = requested_data.text  
+    soup = BeautifulSoup(data, 'html.parser')   
+    movie_links = []
+    download_links = soup.find_all('a', {'class': 'mv_button_css'})
+    
+    for  links in download_links:
+        movie_links.append(links.get('href'))
+    stuff_for_frontend = {
+        "links": movie_links
+    }
+    return render(request, 'movie/testing.html', stuff_for_frontend)
