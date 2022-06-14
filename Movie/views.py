@@ -28,7 +28,7 @@ def get_recent_movie():
 
 
 def getNewMovie(request):
-    BASE_URL = "https://7movierulz.sx/?s="
+    BASE_URL = "https://7movierulz.at/?s="
     search_word = str(request.POST.get("search"))
 
     if search_word:
@@ -78,18 +78,18 @@ def getNewMovie(request):
 
 def getKannadaMovie(request):
     BASE_URL_DICTIONARY = {
-        "featured": "https://7movierulz.sx/category/featured/",
-        "kannada": "https://7movierulz.sx/category/kannada-movie/",
-        "tamil": "https://7movierulz.sx/tamil-movie-free/",
-        "malayalam": "https://7movierulz.sx/malayalam-movie-online/",
-        "telugu": "https://7movierulz.sx/telugu-movie/",
-        "bollywood": "https://7movierulz.sx/bollywood-movie-free/",
-        "hollywood": "https://7movierulz.sx/category/hollywood-movie-2021/",
-        "adult": "https://7movierulz.sx/category/adult-movie/",
-        "dvdrip": "https://7movierulz.sx/category/dvdrip/",
+        "featured": "https://7movierulz.at/category/featured/",
+        "kannada": "https://7movierulz.at/category/kannada-movie/",
+        "tamil": "https://7movierulz.at/tamil-movie-free/",
+        "malayalam": "https://7movierulz.at/malayalam-movie-online/",
+        "telugu": "https://7movierulz.at/telugu-movie/",
+        "bollywood": "https://7movierulz.at/bollywood-movie-free/",
+        "hollywood": "https://7movierulz.at/category/hollywood-movie-2021/",
+        "adult": "https://7movierulz.at/category/adult-movie/",
+        "dvdrip": "https://7movierulz.at/category/dvdrip/",
     }
 
-    GENRE_URL = "https://7movierulz.sx/tag/"
+    GENRE_URL = "https://7movierulz.at/tag/"
 
     INTRESTED_SEARCH = ""
 
