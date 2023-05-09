@@ -8,13 +8,16 @@ recent_movie_list = []
 
 
 def get_recent_movie():
-    BASE_URL = "https://7movierulz.at/?s="
+    BASE_URL = "https://ww2.5movierulz.mx/?s="
+    print("inside the get_recent_movie function")
 
     request_data = requests.get(BASE_URL)
     data = request_data.text
+    print("THE DATA IS ", data)
     soup = BeautifulSoup(data, "html.parser")
 
-    recent_movie = soup.find("li", {"class": "widget widget_movie_recent_post_widget"})
+    recent_movie = soup.find(
+        "li", {"class": "widget widget_movie_recent_post_widget"})
     recent_movie_links = recent_movie.find_all("a")
 
     for removielink in recent_movie_links:
@@ -23,12 +26,13 @@ def get_recent_movie():
         redata = redata.text
         resoup = BeautifulSoup(redata, "html.parser")
         retitle = resoup.find("h2", {"class": "entry-title"}).text
-        reimage = resoup.find("div", {"class": "entry-content"}).find("img").get("src")
+        reimage = resoup.find(
+            "div", {"class": "entry-content"}).find("img").get("src")
         recent_movie_list.append((removieli, reimage, retitle[0:40]))
 
 
 def getNewMovie(request):
-    BASE_URL = "https://7movierulz.at/?s="
+    BASE_URL = "https://ww2.5movierulz.mx/?s="
     search_word = str(request.POST.get("search"))
 
     if search_word:
@@ -44,7 +48,9 @@ def getNewMovie(request):
     soup = BeautifulSoup(data, "html.parser")
 
     movie_listings = soup.find_all("div", {"class": "boxed film"})
-    recent_movie = soup.find("li", {"class": "widget widget_movie_recent_post_widget"})
+    recent_movie = soup.find(
+        "li", {"class": "widget widget_movie_recent_post_widget"})
+    print("all movie list", recent_movie)
     recent_movie_links = recent_movie.find_all("a")
 
     # recent_movie_list = []
@@ -64,7 +70,8 @@ def getNewMovie(request):
         redata = redata.text
         resoup = BeautifulSoup(redata, "html.parser")
         retitle = resoup.find("h2", {"class": "entry-title"}).text
-        reimage = resoup.find("div", {"class": "entry-content"}).find("img").get("src")
+        reimage = resoup.find(
+            "div", {"class": "entry-content"}).find("img").get("src")
         recent_movie_list.append((removieli, reimage, retitle[0:40]))
 
     stuff_for_frontend = {
@@ -78,18 +85,18 @@ def getNewMovie(request):
 
 def getKannadaMovie(request):
     BASE_URL_DICTIONARY = {
-        "featured": "https://7movierulz.at/category/featured/",
-        "kannada": "https://7movierulz.at/category/kannada-movie/",
-        "tamil": "https://7movierulz.at/tamil-movie-free/",
-        "malayalam": "https://7movierulz.at/malayalam-movie-online/",
-        "telugu": "https://7movierulz.at/telugu-movie/",
-        "bollywood": "https://7movierulz.at/bollywood-movie-free/",
-        "hollywood": "https://7movierulz.at/category/hollywood-movie-2021/",
-        "adult": "https://7movierulz.at/category/adult-movie/",
-        "dvdrip": "https://7movierulz.at/category/dvdrip/",
+        "featured": "https://ww2.5movierulz.mx/featured/",
+        "kannada": "https://ww2.5movierulz.mx/kannada-movie/",
+        "tamil": "https://ww2.5movierulz.mx/tamil-movie-free/",
+        "malayalam": "https://ww2.5movierulz.mx/malayalam-movie-online/",
+        "telugu": "https://ww2.5movierulz.mx/telugu-movie/",
+        "bollywood": "https://ww2.5movierulz.mx/bollywood-movie-free/",
+        "hollywood": "https://ww2.5movierulz.mx/hollywood-movie-2021/",
+        "adult": "https://ww2.5movierulz.mx/adult-movie/",
+        "dvdrip": "https://ww2.5movierulz.mx/dvdrip/",
     }
 
-    GENRE_URL = "https://7movierulz.at/tag/"
+    GENRE_URL = "https://ww2.5movierulz.mx/tag/"
 
     INTRESTED_SEARCH = ""
 
@@ -155,7 +162,7 @@ def getKannadaMovie(request):
 
 def downloadMovie(request):
     requested_data = requests.get(
-        "https://7movierulz.sx/konda-polam-2021-hdrip-telugu-full-movie-watch-online-free/"
+        "https://ww2.5movierulz.mx/konda-polam-2021-hdrip-telugu-full-movie-watch-online-free/"
     )
     data = requested_data.text
     soup = BeautifulSoup(data, "html.parser")

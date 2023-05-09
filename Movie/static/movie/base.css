@@ -81,6 +81,7 @@ body {
     border: none;
     color: black;
     background: #f5c518;
+    cursor: pointer;
 }
 
 .additional_buttons {
@@ -88,6 +89,7 @@ body {
     display: flex;
     gap: 2px;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 .other_movies, .genre_select {
     width: 100%;
